@@ -1,0 +1,105 @@
+body {
+    background-image: linear-gradient(#17b993, #10483b);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.centeredBaseDiv {
+    margin: auto;
+    width: 50%;    
+    padding: 5px;
+    text-align: center;
+}
+.headerText {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+}
+.navDiv{
+    right: 0px;
+    padding: 15px;
+    background-color: #bdc0bf;
+  
+}
+.blueNavTitle{
+    background-color: rgba(48, 119, 211, 0.815);
+    color: white;
+    padding: 8px;
+    border-radius: 25px;
+}
+.navTitleCounter{
+    background:white;
+    border-radius:50%;
+    height: 26px;
+    width: 26px;
+    line-height: 26px;
+    display: inline-block;
+    text-align: center;
+    /* margin-right: 0px; */
+    color: rgba(48, 119, 211, 0.815);
+}
+.storedDataDiv{
+    background-color: white;
+    padding: 10px;
+    
+}
+.storedDataItems{
+    border: 1px solid rgb(146, 146, 146);
+    padding: 5px;
+    margin-top: 7px;
+    border-radius: 7px;
+    text-align: left;
+    vertical-align: middle;
+
+}
+
+.delTask{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    
+}
+.statusDone_false{
+    text-decoration: none;
+}
+.statusDone_true{
+    text-decoration: line-through;
+    opacity: 25%;
+}
+.statusDone_true checkbox{
+    accent-color: #9b59b6;
+}
+
+#form{
+    display:flex;
+    flex-direction:row;
+}
+
+#form > input {
+    /* Tell the input to use all the available space */
+    flex-grow:2;
+    /* And hide the input's outline, so the form looks like the outline */
+    border:none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-left: 15px;
+}
+
+/* remove the input focus blue box, it will be in the wrong place. */
+input:focus {
+    outline: none;
+}
+
+
+
+#form > button {
+    /* Just a little styling to make it pretty */
+    border:1px solid blue;
+    background:blue;
+    color:white;
+    padding: 7px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+}
