@@ -38,8 +38,14 @@ const tasks = ref([
 //mounting the localstorage data if anything is present
 onMounted(() => {
   const cachedSavedTask = JSON.parse(localStorage.getItem('tasks'));
+  const idCtrCached = JSON.parse(localStorage.getItem('idCtr'));
   if(cachedSavedTask){
     tasks.value = cachedSavedTask;
+    if(idCtrCached){
+      idCtr.value[0].id = 1;
+    }else{
+      idCtr.value = idCtrCached;
+    }
   }else{
     tasks.value = [
       {id: 1, name: "test me", status: {done: false}},
@@ -101,19 +107,29 @@ const handleTaskDelete = (id) => {
 //handle delete all task
 // type= 1: all task, 0: completed task
 const handleDeleteAllTask = (type) => {
+  let delMsg = "";
   if(type == "1"){
     
     localStorage.removeItem('tasks');
     tasks.value = [];
+    idCtr.value[0].id = 0;
+    delMsg = "All task deleted!";
     
   }else{
-    tasks.value = tasks.value.filter(
-      (task) => task.status.done !== true
-    );
+    
+    if(completedTask.value > 0){
+        tasks.value = tasks.value.filter(
+        (task) => task.status.done !== true
+      );
+      delMsg="All completed task"
+    }else{
+      delMsg="No task deleted!"
+    }
+    
   }
 
   saveToLocalStorage();
-  toast.success("Task Deleted!")  
+  toast.success(delMsg)  
 }
 
 
